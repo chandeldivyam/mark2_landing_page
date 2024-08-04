@@ -8,4 +8,4 @@ docker stop samwise-website-container || true
 docker rm samwise-website-container || true
 
 # Run the new container
-docker run -d --name samwise-website-container -p 3131:3000 samwise-website
+docker run -d --name samwise-website-container -p 3131:80 samwise-website
