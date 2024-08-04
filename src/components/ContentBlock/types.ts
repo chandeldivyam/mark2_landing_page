@@ -1,6 +1,6 @@
 import { TFunction } from "react-i18next";
 export interface ContentBlockProps {
-  icon: string;
+  icon?: string;
   title: string;
   content: string;
   section?: {
@@ -21,4 +21,5 @@ export interface ContentBlockProps {
   t: TFunction;
   id: string;
   direction: "left" | "right";
+  videoUrl?: string;
 }

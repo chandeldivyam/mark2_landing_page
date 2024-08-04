@@ -1,6 +1,7 @@
 import { Row, Col } from "antd";
 import { Fade } from "react-awesome-reveal";
 import { withTranslation } from "react-i18next";
+import YouTube from 'react-youtube';
 
 import { ContentBlockProps } from "./types";
 import { Button } from "../../common/Button";
@@ -25,6 +26,7 @@ const ContentBlock = ({
   t,
   id,
   direction,
+  videoUrl,
 }: ContentBlockProps) => {
   const scrollTo = (id: string) => {
     const element = document.getElementById(id) as HTMLDivElement;
@@ -32,6 +34,14 @@ const ContentBlock = ({
       behavior: "smooth",
     });
   };
+
+  const getYouTubeId = (url: string): string | null => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const youtubeId = videoUrl ? getYouTubeId(videoUrl) : null;
 
   return (
     <ContentSection>
@@ -43,7 +53,20 @@ const ContentBlock = ({
           direction={direction}
         >
           <Col lg={11} md={11} sm={12} xs={24}>
-            <SvgIcon src={icon} width="100%" height="100%" />
+          {youtubeId ? (
+              <YouTube
+                videoId={youtubeId}
+                opts={{
+                  width: '100%',
+                  height: '315',
+                  playerVars: {
+                    autoplay: 0,
+                  },
+                }}
+              />
+            ) : icon ? (
+              <SvgIcon src={icon} width="100%" height="100%" />
+            ) : null}
           </Col>
           <Col lg={11} md={11} sm={11} xs={24}>
             <ContentWrapper>

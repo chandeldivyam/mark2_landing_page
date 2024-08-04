@@ -24,6 +24,12 @@ const Header = ({ t }: { t: TFunction }) => {
   };
 
   const MenuItem = () => {
+
+    const openEarlyAccessForm = () => {
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSeqcUZB4W-df7g8DlX73TDY2EPZ9Nh9sqkhFKPrvcpNNLgf0Q/viewform', '_blank', 'noopener,noreferrer');
+      setVisibility(false);
+    };
+
     const scrollTo = (id: string) => {
       const element = document.getElementById(id) as HTMLDivElement;
       element.scrollIntoView({
@@ -33,21 +39,21 @@ const Header = ({ t }: { t: TFunction }) => {
     };
     return (
       <>
-        <CustomNavLinkSmall onClick={() => scrollTo("about")}>
+        {/* <CustomNavLinkSmall onClick={() => scrollTo("about")}>
           <Span>{t("About")}</Span>
         </CustomNavLinkSmall>
         <CustomNavLinkSmall onClick={() => scrollTo("mission")}>
           <Span>{t("Mission")}</Span>
-        </CustomNavLinkSmall>
-        <CustomNavLinkSmall onClick={() => scrollTo("product")}>
+        </CustomNavLinkSmall> */}
+        {/* <CustomNavLinkSmall onClick={() => scrollTo("product")}>
           <Span>{t("Product")}</Span>
-        </CustomNavLinkSmall>
+        </CustomNavLinkSmall> */}
         <CustomNavLinkSmall
           style={{ width: "180px" }}
-          onClick={() => scrollTo("contact")}
+          onClick={openEarlyAccessForm}
         >
           <Span>
-            <Button>{t("Contact")}</Button>
+            <Button>{t("Signup (Alpha)")}</Button>
           </Span>
         </CustomNavLinkSmall>
       </>
@@ -59,7 +65,7 @@ const Header = ({ t }: { t: TFunction }) => {
       <Container>
         <Row justify="space-between">
           <LogoContainer to="/" aria-label="homepage">
-            <SvgIcon src="logo.svg" width="101px" height="64px" />
+            <SvgIcon src="sam_logo.svg" width="101px" height="64px" />
           </LogoContainer>
           <NotHidden>
             <MenuItem />

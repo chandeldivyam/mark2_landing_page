@@ -5,6 +5,7 @@ import AboutContent from "../../content/AboutContent.json";
 import MissionContent from "../../content/MissionContent.json";
 import ProductContent from "../../content/ProductContent.json";
 import ContactContent from "../../content/ContactContent.json";
+import HeroContent from "../../content/HeroContent.json";
 
 const Contact = lazy(() => import("../../components/ContactForm"));
 const MiddleBlock = lazy(() => import("../../components/MiddleBlock"));
@@ -18,11 +19,19 @@ const Home = () => {
       <ScrollToTop />
       <ContentBlock
         direction="right"
+        title={HeroContent.title}
+        content={HeroContent.text}
+        button={HeroContent.button}
+        icon="samwise.gif"
+        id="intro"
+      />
+      <ContentBlock
+        direction="left"
         title={IntroContent.title}
         content={IntroContent.text}
         button={IntroContent.button}
-        icon="developer.svg"
-        id="intro"
+        icon="hero_banner.svg"
+        id="collaboration"
       />
       <MiddleBlock
         title={MiddleBlockContent.title}
@@ -34,28 +43,28 @@ const Home = () => {
         title={AboutContent.title}
         content={AboutContent.text}
         section={AboutContent.section}
-        icon="graphs.svg"
+        videoUrl="https://www.youtube.com/watch?v=iuOJwIRKb50"
         id="about"
       />
       <ContentBlock
         direction="right"
         title={MissionContent.title}
         content={MissionContent.text}
-        icon="product-launch.svg"
+        icon="automation.svg"
         id="mission"
       />
-      <ContentBlock
+      {/* <ContentBlock
         direction="left"
         title={ProductContent.title}
         content={ProductContent.text}
         icon="waving.svg"
         id="product"
-      />
-      <Contact
+      /> */}
+      {/* <Contact
         title={ContactContent.title}
         content={ContactContent.text}
         id="contact"
-      />
+      /> */}
     </Container>
   );
 };

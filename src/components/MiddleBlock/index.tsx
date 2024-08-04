@@ -18,6 +18,9 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
       behavior: "smooth",
     });
   };
+  const openEarlyAccessForm = () => {
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSeqcUZB4W-df7g8DlX73TDY2EPZ9Nh9sqkhFKPrvcpNNLgf0Q/viewform', '_blank', 'noopener,noreferrer');
+  };
   return (
     <MiddleBlockSection>
       <Slide direction="up" triggerOnce>
@@ -27,7 +30,7 @@ const MiddleBlock = ({ title, content, button, t }: MiddleBlockProps) => {
               <h6>{t(title)}</h6>
               <Content>{t(content)}</Content>
               {button && (
-                <Button name="submit" onClick={() => scrollTo("mission")}>
+                <Button name="submit" onClick={openEarlyAccessForm}>
                   {t(button)}
                 </Button>
               )}
