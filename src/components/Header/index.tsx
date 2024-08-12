@@ -30,13 +30,7 @@ const Header = ({ t }: { t: TFunction }) => {
       setVisibility(false);
     };
 
-    const scrollTo = (id: string) => {
-      const element = document.getElementById(id) as HTMLDivElement;
-      element.scrollIntoView({
-        behavior: "smooth",
-      });
-      setVisibility(false);
-    };
+  
     return (
       <>
         {/* <CustomNavLinkSmall onClick={() => scrollTo("about")}>
